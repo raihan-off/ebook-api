@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
@@ -18,3 +19,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// Route::get('books', 'BookController@index'); // show/read all data
+// Route::post('books', 'BookController@store'); // create new data
+// Route::get('books/{id}', 'BookController@show'); // show/read data by id (detail data)
+// Route::get('books/{id}', 'BookController@update'); // update data
+// Route::delete('books/{id}', 'BookController@destroy'); // delete data
+
+Route::resource('books', 'BookController');
