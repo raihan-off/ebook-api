@@ -26,4 +26,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // Route::get('books/{id}', 'BookController@update'); // update data
 // Route::delete('books/{id}', 'BookController@destroy'); // delete data
 
+/*route untuk book*/
+
 Route::resource('books', 'BookController');
+
+/*route untuk author*/
+
+Route::resource('authors', 'AuthorController');
