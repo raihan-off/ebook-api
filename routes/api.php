@@ -33,3 +33,18 @@ Route::resource('books', 'BookController');
 /*route untuk author*/
 
 Route::resource('authors', 'AuthorController');
+
+/*route auth jwt api*/
+
+Route::group([
+
+    'middleware' => 'api',
+    'prefix' => 'auth'
+
+], function ($router) {
+    Route::post('login', 'AuthController@login');
+    Route::post('register', 'AuthController@register');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::get('user-profile', 'AuthController@userProfile');
+});
